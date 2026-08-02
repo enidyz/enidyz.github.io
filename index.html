@@ -4,21 +4,26 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>EniDyz — Mental i Duchowość</title>
-  <meta name="description" content="Spokojna, żywa i inspirująca przestrzeń o mentalu, duchowości i uważności." />
-  <meta name="theme-color" content="#f7fbf7" />
+  <meta name="description" content="Spokojna, jasna i inspirująca przestrzeń o mentalu, duchowości i uważności." />
+  <meta name="theme-color" content="#fffdf7" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="noise" aria-hidden="true"></div>
 
-  <button class="menu-fab" type="button" aria-label="Otwórz menu" aria-expanded="false">
-    <span></span><span></span><span></span>
+  <button class="menu-fab" type="button" aria-label="Otwórz menu" aria-expanded="false" aria-controls="sidebar">
+    <span class="hamburger" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+    <span class="fab-text">Menu</span>
   </button>
 
   <a class="backtop" href="#start" aria-label="Powrót do góry">↑</a>
 
   <div class="shell" id="shell">
-    <aside class="sidebar" aria-label="Menu główne">
+    <aside class="sidebar" id="sidebar" aria-label="Menu główne">
       <div class="sidebar-head">
         <div class="brand">
           <span class="mark" aria-hidden="true"></span>
@@ -62,13 +67,13 @@
     </aside>
 
     <main class="content scroller" id="start">
-      <header class="topbar">
+      <header class="topbar reveal">
         <div class="topbar-copy">
           <span class="eyebrow"><span class="dot"></span> Spokój, który przyciąga</span>
           <h1>Wewnętrzna równowaga zaczyna się tutaj.</h1>
           <p class="lead">
-            EniDyz to żywa, jasna i spokojna przestrzeń o mentalu, duchowości i codziennej uważności.
-            Ma od razu budzić ciekawość, a jednocześnie dawać oddech.
+            EniDyz to jasna, żywa i spokojna przestrzeń o mentalu, duchowości i codziennej uważności.
+            Ma budzić ciekawość, ale też dawać oddech.
           </p>
         </div>
       </header>
