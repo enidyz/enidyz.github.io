@@ -406,3 +406,23 @@ p{
     min-height:100svh;
   }
 }
+
+@media (prefers-reduced-motion: reduce){
+  html:focus-within{
+    scroll-behavior:auto;
+  }
+
+  .reveal{
+    opacity:1;
+    transform:none;
+    transition:none;
+  }
+
+  .orb{
+    animation:none;
+  }
+
+  .btn:hover{
+    transform:none;
+  }
+}
