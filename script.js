@@ -23,9 +23,7 @@ fab?.addEventListener('click', () => {
 closeBtn?.addEventListener('click', closeMenu);
 
 document.querySelectorAll('.menu a').forEach(link => {
-  link.addEventListener('click', () => {
-    closeMenu();
-  });
+  link.addEventListener('click', closeMenu);
 });
 
 if (!reduceMotion && 'IntersectionObserver' in window) {
