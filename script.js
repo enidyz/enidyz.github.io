@@ -23,9 +23,7 @@ menuButton?.addEventListener('click', () => {
 drawerClose?.addEventListener('click', closeDrawer);
 overlay?.addEventListener('click', closeDrawer);
 
-document.querySelectorAll('.nav-link').forEach(link => {
-  link.addEventListener('click', closeDrawer);
-});
+document.querySelectorAll('.nav-link').forEach(link => link.addEventListener('click', closeDrawer));
 
 window.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeDrawer();
