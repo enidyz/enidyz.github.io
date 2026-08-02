@@ -3,23 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EniDyz — książka o rozwoju mentalnym i duchowym</title>
-  <meta name="description" content="EniDyz to spokojna, premium strona książki o zdrowiu mentalnym, rozwoju duchowym i budowaniu bardziej świadomego życia." />
-  <meta name="theme-color" content="#0b1020" />
+  <title>EniDyz — Mental i Duchowość</title>
+  <meta name="description" content="EniDyz to spokojna przestrzeń o mentalu, uważności i duchowości." />
+  <meta name="theme-color" content="#dfe9e4" />
   <style>
     :root{
-      --bg1:#101828;
-      --bg2:#0b1020;
-      --card:rgba(17,24,39,.88);
-      --card2:rgba(24,33,49,.92);
-      --text:#f8fafc;
-      --muted:#d4d8e3;
-      --line:rgba(255,255,255,.14);
-      --accent:#73d7bc;
-      --accent2:#8db9ff;
-      --accent3:#ffe08a;
-      --shadow:0 20px 60px rgba(0, 0, 0, .35);
-      --radius:28px;
+      --bg:#eef3ef;
+      --bg2:#e7efe8;
+      --panel:rgba(255,255,255,.72);
+      --panel-strong:rgba(255,255,255,.88);
+      --text:#1d2a24;
+      --muted:#5f6f67;
+      --line:rgba(29,42,36,.10);
+      --accent:#6f9b8a;
+      --accent2:#8aa6c8;
+      --accent3:#c9b28d;
+      --shadow:0 18px 50px rgba(29,42,36,.10);
     }
 
     *{box-sizing:border-box}
@@ -28,10 +27,10 @@
       font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
       color:var(--text);
       background:
-        radial-gradient(circle at top left, rgba(115,215,188,.16), transparent 32%),
-        radial-gradient(circle at top right, rgba(141,185,255,.14), transparent 30%),
-        radial-gradient(circle at bottom, rgba(255,224,138,.10), transparent 28%),
-        linear-gradient(180deg, var(--bg1), var(--bg2));
+        radial-gradient(circle at 10% 10%, rgba(111,155,138,.22), transparent 28%),
+        radial-gradient(circle at 88% 18%, rgba(138,166,200,.20), transparent 26%),
+        radial-gradient(circle at 48% 92%, rgba(201,178,141,.18), transparent 30%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
       overflow-x:hidden;
     }
 
@@ -39,41 +38,38 @@
       position:fixed;
       inset:0;
       pointer-events:none;
-      opacity:.04;
+      opacity:.05;
       background-image:
-        linear-gradient(rgba(255,255,255,.45) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.45) 1px, transparent 1px);
-      background-size:28px 28px;
-      mix-blend-mode:screen;
+        linear-gradient(rgba(29,42,36,.25) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(29,42,36,.25) 1px, transparent 1px);
+      background-size:30px 30px;
     }
 
     .wrap{
       min-height:100vh;
-      display:grid;
-      place-items:center;
-      padding:22px;
-      position:relative;
+      padding:16px;
     }
 
-    .card{
-      width:min(1120px,100%);
-      background:linear-gradient(180deg, var(--card), var(--card2));
-      border:1px solid var(--line);
-      backdrop-filter:blur(12px);
-      border-radius:34px;
+    .page{
+      max-width:1140px;
+      margin:0 auto;
+      background:linear-gradient(180deg, rgba(255,255,255,.52), rgba(255,255,255,.32));
+      border:1px solid rgba(29,42,36,.08);
+      border-radius:32px;
       box-shadow:var(--shadow);
       overflow:hidden;
-      position:relative;
     }
 
     .topbar{
       display:flex;
       justify-content:space-between;
       align-items:center;
-      gap:16px;
-      padding:20px 24px;
-      border-bottom:1px solid rgba(255,255,255,.10);
+      gap:12px;
+      padding:18px 22px;
+      border-bottom:1px solid var(--line);
       flex-wrap:wrap;
+      background:rgba(255,255,255,.35);
+      backdrop-filter:blur(10px);
     }
 
     .brand{
@@ -81,17 +77,14 @@
       align-items:center;
       gap:12px;
       font-weight:800;
-      letter-spacing:.3px;
-      font-size:1.05rem;
+      letter-spacing:.2px;
     }
 
     .mark{
-      width:42px;
-      height:42px;
-      border-radius:14px;
+      width:40px;height:40px;border-radius:14px;
       background:conic-gradient(from 180deg, var(--accent), var(--accent2), var(--accent3), var(--accent));
-      box-shadow:0 10px 30px rgba(115,215,188,.18);
       position:relative;
+      box-shadow:0 10px 24px rgba(111,155,138,.18);
     }
 
     .mark::after{
@@ -103,20 +96,56 @@
     }
 
     .badge{
-      padding:10px 16px;
+      padding:10px 14px;
       border-radius:999px;
       border:1px solid var(--line);
+      background:rgba(255,255,255,.52);
       color:var(--muted);
-      background:rgba(255,255,255,.05);
       font-size:.92rem;
     }
 
-    .hero{
+    .scroll-snap{scroll-behavior:smooth}
+
+    .section{
+      min-height:100svh;
       display:grid;
-      grid-template-columns:1.12fr .88fr;
-      gap:22px;
-      padding:30px 24px 24px;
       align-items:center;
+      padding:26px 22px 30px;
+      border-bottom:1px solid rgba(29,42,36,.06);
+      scroll-snap-align:start;
+      scroll-snap-stop:always;
+    }
+
+    .inner{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:20px;
+      align-items:center;
+    }
+
+    h1{
+      font-size:clamp(2.8rem,7vw,5.2rem);
+      line-height:.95;
+      letter-spacing:-.05em;
+      margin:14px 0 14px;
+    }
+
+    h2{
+      margin:0 0 12px;
+      font-size:1.7rem;
+      letter-spacing:-.03em;
+    }
+
+    h3{
+      margin:0 0 8px;
+      font-size:1.08rem;
+    }
+
+    p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.76;
+      font-size:1.03rem;
     }
 
     .eyebrow{
@@ -125,84 +154,63 @@
       gap:8px;
       padding:10px 14px;
       border-radius:999px;
-      background:rgba(115,215,188,.12);
-      color:#bdf5e7;
-      border:1px solid rgba(115,215,188,.16);
+      background:rgba(111,155,138,.12);
+      border:1px solid rgba(111,155,138,.12);
+      color:#517264;
       font-size:.92rem;
-      font-weight:600;
+      font-weight:700;
     }
 
     .dot{
       width:10px;height:10px;border-radius:50%;
       background:var(--accent);
-      box-shadow:0 0 0 6px rgba(115,215,188,.14);
-      flex:0 0 auto;
+      box-shadow:0 0 0 6px rgba(111,155,138,.10);
     }
 
-    h1{
-      margin:18px 0 16px;
-      font-size:clamp(2.8rem,5.7vw,5.4rem);
-      line-height:.95;
-      letter-spacing:-.05em;
-      color:#ffffff;
-    }
-
-    h2,h3{color:#ffffff}
-
-    .lead{
-      font-size:clamp(1.02rem,2vw,1.12rem);
-      line-height:1.8;
-      color:var(--muted);
-      max-width:58ch;
-      margin:0;
-    }
+    .lead{max-width:58ch}
 
     .actions{
       display:flex;
+      gap:12px;
       flex-wrap:wrap;
-      gap:14px;
-      margin-top:26px;
+      margin-top:24px;
     }
 
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap:10px;
-      padding:14px 20px;
+      padding:14px 18px;
       border-radius:16px;
-      font-weight:700;
       text-decoration:none;
-      border:1px solid transparent;
-      transition:.25s ease;
-      cursor:pointer;
+      font-weight:800;
+      transition:.2s ease;
     }
 
     .btn.primary{
-      background:linear-gradient(135deg, var(--accent), #41bfa4);
-      color:#08111c;
-      box-shadow:0 14px 30px rgba(115,215,188,.18);
+      background:linear-gradient(135deg, var(--accent), #86b59f);
+      color:#fff;
     }
 
     .btn.secondary{
-      background:rgba(255,255,255,.06);
+      background:rgba(255,255,255,.52);
+      border:1px solid var(--line);
       color:var(--text);
-      border-color:var(--line);
     }
 
-    .btn:hover{transform:translateY(-2px)}
+    .btn:hover{transform:translateY(-1px)}
 
     .visual{
       position:relative;
-      min-height:500px;
-      border-radius:30px;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(141,185,255,.18), transparent 28%),
-        radial-gradient(circle at 80% 20%, rgba(115,215,188,.18), transparent 22%),
-        radial-gradient(circle at 50% 80%, rgba(255,224,138,.12), transparent 26%),
-        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-      border:1px solid rgba(255,255,255,.10);
+      min-height:420px;
+      border-radius:28px;
       overflow:hidden;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(111,155,138,.18), transparent 26%),
+        radial-gradient(circle at 80% 18%, rgba(138,166,200,.18), transparent 24%),
+        radial-gradient(circle at 58% 82%, rgba(201,178,141,.16), transparent 28%),
+        rgba(255,255,255,.40);
+      border:1px solid rgba(29,42,36,.08);
       display:grid;
       place-items:center;
     }
@@ -210,314 +218,255 @@
     .orb{
       position:absolute;
       border-radius:50%;
-      filter:blur(1px);
       animation:float 10s ease-in-out infinite;
+      filter:saturate(.95);
     }
 
     .orb.one{
-      width:180px;height:180px;
-      background:radial-gradient(circle at 30% 30%, #c7fff0, #73d7bc 72%);
-      top:46px; left:48px;
-      box-shadow:0 18px 50px rgba(115,215,188,.16);
+      width:170px;height:170px;top:44px;left:36px;
+      background:radial-gradient(circle at 30% 30%, #e8f4ed, #95b9aa 72%);
     }
 
     .orb.two{
-      width:120px;height:120px;
-      background:radial-gradient(circle at 30% 30%, #dbeafe, #8db9ff 72%);
-      right:70px; top:88px;
+      width:112px;height:112px;top:82px;right:54px;
+      background:radial-gradient(circle at 30% 30%, #edf3fb, #a8bedb 72%);
       animation-delay:-2.2s;
     }
 
     .orb.three{
-      width:148px;height:148px;
-      background:radial-gradient(circle at 30% 30%, #fff6d6, #ffe08a 75%);
-      bottom:56px; right:116px;
+      width:140px;height:140px;bottom:46px;right:88px;
+      background:radial-gradient(circle at 30% 30%, #f3eadb, #d7bb8a 75%);
       animation-delay:-4.2s;
     }
 
     .panel{
-      width:min(390px,80%);
-      background:rgba(17,24,39,.92);
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:28px;
-      box-shadow:0 14px 40px rgba(0, 0, 0, .18);
+      width:min(390px,82%);
+      background:rgba(255,255,255,.82);
+      border:1px solid rgba(29,42,36,.08);
+      border-radius:24px;
       padding:22px;
+      box-shadow:0 16px 36px rgba(29,42,36,.08);
       position:relative;
       z-index:2;
-      text-align:left;
-    }
-
-    .panel h2{
-      margin:0 0 8px;
-      font-size:1.45rem;
-    }
-
-    .panel p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.65;
     }
 
     .mini{
       display:grid;
       grid-template-columns:repeat(3,1fr);
-      gap:12px;
-      margin-top:18px;
+      gap:10px;
+      margin-top:16px;
+    }
+
+    .mini div,
+    .card{
+      border-radius:18px;
+      background:rgba(255,255,255,.58);
+      border:1px solid rgba(29,42,36,.08);
     }
 
     .mini div{
-      border-radius:18px;
-      padding:14px 12px;
       text-align:center;
-      background:rgba(255,255,255,.05);
-      border:1px solid var(--line);
+      padding:12px 10px;
+      color:var(--muted);
       font-size:.92rem;
-      color:var(--muted);
-    }
-
-    .section{
-      padding:0 24px 30px;
-    }
-
-    .section h2{
-      margin:0 0 14px;
-      font-size:1.65rem;
-    }
-
-    .section p{
-      color:var(--muted);
-      line-height:1.75;
-      margin:0;
     }
 
     .grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
-      gap:16px;
-      margin-top:16px;
+      gap:14px;
+      margin-top:14px;
     }
 
-    .feature,.signup,.note,.trust{
-      padding:22px;
+    .card{
+      padding:18px;
+    }
+
+    .signup{
+      padding:20px;
       border-radius:24px;
-      background:rgba(255,255,255,.05);
-      border:1px solid var(--line);
+      background:rgba(255,255,255,.72);
+      border:1px solid rgba(29,42,36,.08);
     }
 
-    .feature h3,.signup h3,.note h3,.trust h3{
-      margin:0 0 10px;
-      font-size:1.12rem;
-      color:#ffffff;
-    }
-
-    .feature p,.signup p,.note p,.trust p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.7;
-    }
-
-    .stack{
-      display:grid;
-      gap:16px;
-      margin-top:16px;
-    }
+    .stack{display:grid;gap:14px}
 
     .cta-box{
-      margin-top:16px;
       display:flex;
       gap:12px;
       flex-wrap:wrap;
+      margin-top:6px;
     }
 
     .email{
       width:min(100%,360px);
       padding:14px 16px;
       border-radius:16px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.06);
-      font:inherit;
+      border:1px solid rgba(29,42,36,.10);
+      background:rgba(255,255,255,.62);
       color:var(--text);
+      font:inherit;
       outline:none;
     }
 
-    .email::placeholder{color:#9ba7c4}
-
-    .email:focus{
-      border-color:rgba(115,215,188,.45);
-      box-shadow:0 0 0 4px rgba(115,215,188,.10);
-    }
+    .email::placeholder{color:#6b7b73}
 
     .footer{
-      padding:0 24px 28px;
+      padding:0 22px 22px;
       color:var(--muted);
       font-size:.95rem;
     }
 
     @keyframes float{
       0%,100%{transform:translateY(0) translateX(0)}
-      50%{transform:translateY(-18px) translateX(8px)}
+      50%{transform:translateY(-14px) translateX(6px)}
     }
 
-    @media (max-width:920px){
-      .hero{grid-template-columns:1fr}
-      .visual{min-height:420px}
-      .grid{grid-template-columns:1fr}
+    @media (max-width:900px){
+      .inner,.grid{grid-template-columns:1fr}
+      .section{min-height:auto}
+      .visual{min-height:340px}
     }
 
     @media (max-width:640px){
-      .topbar,.hero,.section,.footer{padding-left:16px;padding-right:16px}
-      h1{font-size:clamp(2.4rem,12vw,3.8rem)}
+      .wrap{padding:10px}
+      .page{border-radius:24px}
+      .topbar,.section,.footer{padding-left:16px;padding-right:16px}
+      h1{font-size:clamp(2.3rem,12vw,3.8rem)}
       .mini{grid-template-columns:1fr}
       .badge{display:none}
-      .card{border-radius:28px}
+    }
+
+    @media (max-width:900px) and (pointer:coarse){
+      .scroll-snap{
+        height:100svh;
+        overflow-y:auto;
+        scroll-snap-type:y proximity;
+        overscroll-behavior-y:contain;
+      }
+      .page{height:100svh}
+      .section{min-height:100svh}
     }
   </style>
 </head>
 <body>
   <div class="noise"></div>
-
-  <main class="wrap">
-    <section class="card">
+  <main class="wrap scroll-snap">
+    <div class="page">
       <header class="topbar">
         <div class="brand">
           <span class="mark" aria-hidden="true"></span>
           <span>EniDyz</span>
         </div>
-        <div class="badge">Spokój • Rozwój • Świadomość</div>
+        <div class="badge">Mental • Duchowość • Uważność</div>
       </header>
 
-      <div class="hero">
-        <div>
-          <span class="eyebrow"><span class="dot"></span> Książka tworzona z myślą o równowadze</span>
-          <h1>Spokojniej, głębiej, świadomiej.</h1>
-          <p class="lead">
-            EniDyz to książka o rozwoju mentalnym i duchowym, która ma pomagać lepiej rozumieć siebie,
-            porządkować emocje i budować bardziej świadome życie. To projekt dla osób, które chcą iść do przodu
-            bez presji, ale z sensem.
-          </p>
-          <div class="actions">
-            <a class="btn primary" href="#zainteresowani">Dołącz do listy zainteresowanych</a>
-            <a class="btn secondary" href="#o-ksiazce">Poznaj książkę</a>
-          </div>
-        </div>
-
-        <aside class="visual" aria-label="Dekoracyjna wizualizacja marki">
-          <div class="orb one"></div>
-          <div class="orb two"></div>
-          <div class="orb three"></div>
-
-          <div class="panel">
-            <h2>EniDyz</h2>
-            <p>
-              Spokojna, elegancka i nowoczesna przestrzeń wokół książki, która ma wspierać rozwój,
-              wyciszenie i wewnętrzną harmonię.
+      <section class="section">
+        <div class="inner">
+          <div>
+            <span class="eyebrow"><span class="dot"></span> Przestrzeń dla spokoju</span>
+            <h1>Wewnętrzna równowaga zaczyna się tutaj.</h1>
+            <p class="lead">
+              EniDyz to delikatna przestrzeń o mentalu, duchowości i codziennej uważności.
+              Tworzymy miejsce, które ma wspierać wyciszenie, refleksję i kontakt ze sobą.
             </p>
-
-            <div class="mini">
-              <div>Spokój</div>
-              <div>Balans</div>
-              <div>Świadomość</div>
+            <div class="actions">
+              <a class="btn primary" href="#kontakt">Zostań blisko</a>
+              <a class="btn secondary" href="#o-projekcie">Poznaj projekt</a>
             </div>
           </div>
-        </aside>
-      </div>
 
-      <section class="section" id="o-ksiazce">
-        <h2>O książce</h2>
-        <p>
-          EniDyz powstaje jako mądry, spokojny przewodnik po świecie zdrowia mentalnego, rozwoju duchowego
-          i codziennego budowania równowagi. Książka ma łączyć refleksję, praktyczne spojrzenie na siebie
-          oraz prosty język, żeby czytelnik mógł nie tylko przeczytać treść, ale też realnie ją zastosować.
-        </p>
-        <div class="grid">
-          <div class="feature">
-            <h3>Idea książki</h3>
-            <p>Pokazać, że rozwój może być łagodny, konsekwentny i naprawdę skuteczny.</p>
-          </div>
-          <div class="feature">
-            <h3>Ton i podejście</h3>
-            <p>Empatyczny, dojrzały i profesjonalny. Taki, który prowadzi, a nie ocenia.</p>
-          </div>
-          <div class="feature">
-            <h3>Najważniejszy cel</h3>
-            <p>Pomóc wrócić do siebie: do spokoju, świadomości, lepszych decyzji i stabilności.</p>
+          <div class="visual" aria-label="Dekoracyjna wizualizacja">
+            <div class="orb one"></div>
+            <div class="orb two"></div>
+            <div class="orb three"></div>
+            <div class="panel">
+              <h2>Spokój, który prowadzi.</h2>
+              <p>
+                Subtelny rytm, miękka forma i estetyka, która nie przytłacza.
+              </p>
+              <div class="mini">
+                <div>Uważność</div>
+                <div>Balans</div>
+                <div>Wyciszenie</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="section" id="dla-kogo">
-        <h2>Dla kogo</h2>
-        <div class="grid">
-          <div class="feature">
-            <h3>Dla osób przeciążonych</h3>
-            <p>Dla tych, którzy czują mentalny hałas, stres albo zbyt dużo bodźców i chcą odzyskać ciszę w głowie.</p>
-          </div>
-          <div class="feature">
-            <h3>Dla osób rozwijających się</h3>
-            <p>Dla ludzi, którzy chcą pracować nad sobą, wzmacniać psychikę i budować zdrowszy sposób myślenia.</p>
-          </div>
-          <div class="feature">
-            <h3>Dla osób szukających głębi</h3>
-            <p>Dla tych, którzy chcą zrozumieć siebie lepiej niż przez powierzchowną motywację.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="co-zyskasz">
-        <h2>Co zyskasz</h2>
-        <div class="grid">
-          <div class="feature">
-            <h3>Więcej jasności</h3>
-            <p>Lepiej zrozumiesz swoje emocje, reakcje i potrzeby, co ułatwi spokojniejsze decyzje.</p>
-          </div>
-          <div class="feature">
-            <h3>Lepszy balans</h3>
-            <p>Rozwiniesz spokojniejsze podejście do codzienności, bez ciągłej presji i chaosu.</p>
-          </div>
-          <div class="feature">
-            <h3>Głębszy kontakt ze sobą</h3>
-            <p>Nauczysz się bardziej ufać swojej intuicji, granicom i wartościom, które są naprawdę Twoje.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="zainteresowani">
-        <h2>Zainteresowani</h2>
-        <div class="stack">
-          <div class="trust">
-            <h3>Dlaczego warto zostawić kontakt</h3>
+      <section class="section" id="o-projekcie">
+        <div class="inner">
+          <div>
+            <h2>O projekcie</h2>
             <p>
-              Książka jest jeszcze w przygotowaniu, więc lista zainteresowanych pozwoli Ci być bliżej projektu
-              i otrzymać informację, gdy pojawią się kolejne etapy prac.
+              Projekt skupia się na mentalu i duchowości w nowoczesnym, łagodnym wydaniu.
+              Strona ma dawać poczucie lekkości, a jednocześnie budować zaufanie i komfort.
+            </p>
+          </div>
+          <div class="grid">
+            <div class="card">
+              <h3>Wsparcie mentalne</h3>
+              <p>Przestrzeń do zatrzymania się, oddechu i uporządkowania myśli.</p>
+            </div>
+            <div class="card">
+              <h3>Duchowy kierunek</h3>
+              <p>Delikatny kontakt z tym, co wewnętrzne, ciche i ważne.</p>
+            </div>
+            <div class="card">
+              <h3>Bez presji</h3>
+              <p>Łagodne prowadzenie użytkownika, bez nadmiaru bodźców i hałasu.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="kontakt">
+        <div class="inner">
+          <div>
+            <h2>Zostań na bieżąco</h2>
+            <p>
+              Jeśli chcesz wrócić do projektu później, możesz zostawić kontakt.
+              To prosty sposób, żeby nie zgubić tej przestrzeni.
             </p>
           </div>
           <div class="signup">
-            <h3>Dołącz do listy zainteresowanych</h3>
-            <p>
-              Zostaw maila, jeśli chcesz otrzymać wiadomość o postępach, premierze lub nowych materiałach związanych z EniDyz.
-            </p>
-            <div class="cta-box">
-              <input class="email" type="email" placeholder="Twój adres e-mail" aria-label="Adres e-mail" />
-              <a class="btn primary" href="#">Chcę otrzymać informacje</a>
+            <div class="stack">
+              <div>
+                <h3>Kontakt e-mail</h3>
+                <p>Krótko, prosto i bez zbędnego nacisku.</p>
+              </div>
+              <div class="cta-box">
+                <input class="email" type="email" placeholder="Twój adres e-mail" aria-label="Adres e-mail" />
+                <a class="btn primary" href="#">Chcę wrócić</a>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section" id="status-projektu">
-        <div class="note">
-          <h3>Status projektu</h3>
-          <p>
-            Projekt jest aktywnie rozwijany. Budujemy stronę, dopracowujemy wizję książki,
-            planujemy treść i porządkujemy kierunek całej marki EniDyz.
-          </p>
+      <section class="section">
+        <div class="inner">
+          <div>
+            <h2>Energia strony</h2>
+            <p>
+              To ma być miejsce spokojne, estetyczne i dostępne. Scroll może być odrobinę „slajdowy”
+              na mobile, ale nadal wygodny i naturalny.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Wyważony charakter</h3>
+            <p>
+              Bez zbyt wielu kolorów, bez przesadnych animacji i bez ciężkiego efektu prezentacji.
+            </p>
+          </div>
         </div>
       </section>
 
       <div class="footer">
-        EniDyz — spokojna przestrzeń wokół książki o rozwoju mentalnym i duchowym.
+        EniDyz — mental, duchowość i spokojna obecność.
       </div>
-    </section>
+    </div>
   </main>
 </body>
 </html>
