@@ -14,6 +14,7 @@
 
 *{box-sizing:border-box}
 html,body{margin:0;height:100%}
+html{scroll-behavior:smooth}
 
 body{
   font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
@@ -35,9 +36,38 @@ body{
     linear-gradient(rgba(29,42,36,.25) 1px, transparent 1px),
     linear-gradient(90deg, rgba(29,42,36,.25) 1px, transparent 1px);
   background-size:30px 30px;
+  z-index:0;
+}
+
+.backtop{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  text-decoration:none;
+  color:#fff;
+  background:linear-gradient(135deg, var(--accent), #86b59f);
+  box-shadow:0 14px 34px rgba(111,155,138,.25);
+  z-index:50;
+  opacity:0;
+  transform:translateY(8px);
+  transition:.2s ease;
+  pointer-events:none;
+}
+
+.backtop.is-visible{
+  opacity:1;
+  transform:translateY(0);
+  pointer-events:auto;
 }
 
 .wrap{
+  position:relative;
+  z-index:1;
   min-height:100vh;
   padding:16px;
 }
@@ -53,6 +83,9 @@ body{
 }
 
 .topbar{
+  position:sticky;
+  top:0;
+  z-index:20;
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -60,7 +93,7 @@ body{
   padding:18px 22px;
   border-bottom:1px solid var(--line);
   flex-wrap:wrap;
-  background:rgba(255,255,255,.35);
+  background:rgba(255,255,255,.45);
   backdrop-filter:blur(10px);
 }
 
@@ -89,13 +122,27 @@ body{
   background:rgba(255,255,255,.85);
 }
 
-.badge{
-  padding:10px 14px;
-  border-radius:999px;
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.52);
+.menu{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+.menu a{
+  text-decoration:none;
   color:var(--muted);
-  font-size:.92rem;
+  font-size:.95rem;
+  padding:8px 12px;
+  border-radius:999px;
+  border:1px solid transparent;
+  transition:.2s ease;
+}
+
+.menu a:hover{
+  color:var(--text);
+  background:rgba(255,255,255,.50);
+  border-color:var(--line);
 }
 
 .scroll-snap{
@@ -110,6 +157,10 @@ body{
   border-bottom:1px solid rgba(29,42,36,.06);
   scroll-snap-align:start;
   scroll-snap-stop:always;
+}
+
+.hero{
+  scroll-margin-top:90px;
 }
 
 .inner{
@@ -361,6 +412,10 @@ p{
   .visual{
     min-height:340px;
   }
+
+  .menu{
+    justify-content:flex-start;
+  }
 }
 
 @media (max-width:640px){
@@ -383,10 +438,6 @@ p{
 
   .mini{
     grid-template-columns:1fr;
-  }
-
-  .badge{
-    display:none;
   }
 }
 
@@ -424,5 +475,9 @@ p{
 
   .btn:hover{
     transform:none;
+  }
+
+  .backtop{
+    transition:none;
   }
 }
