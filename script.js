@@ -1,60 +1,57 @@
-const shell = document.querySelector('.shell');
-const fab = document.querySelector('.menu-fab');
-const closeBtn = document.querySelector('.menu-close');
-const backtop = document.querySelector('.backtop');
-const hero = document.querySelector('#hero');
+const page = document.querySelector('#page');
+const menuButton = document.querySelector('.menu-button');
+const drawerClose = document.querySelector('.drawer-close');
+const overlay = document.querySelector('.overlay');
+const toTop = document.querySelector('.to-top');
 const reveals = document.querySelectorAll('.reveal');
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-function openMenu() {
-  shell.classList.add('menu-open');
-  fab.setAttribute('aria-expanded', 'true');
-}
+const openDrawer = () => {
+  page.classList.add('drawer-open');
+  menuButton.setAttribute('aria-expanded', 'true');
+};
 
-function closeMenu() {
-  shell.classList.remove('menu-open');
-  fab.setAttribute('aria-expanded', 'false');
-}
+const closeDrawer = () => {
+  page.classList.remove('drawer-open');
+  menuButton.setAttribute('aria-expanded', 'false');
+};
 
-fab?.addEventListener('click', () => {
-  shell.classList.contains('menu-open') ? closeMenu() : openMenu();
+menuButton?.addEventListener('click', () => {
+  page.classList.contains('drawer-open') ? closeDrawer() : openDrawer();
+});
+drawerClose?.addEventListener('click', closeDrawer);
+overlay?.addEventListener('click', closeDrawer);
+
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', closeDrawer);
 });
 
-closeBtn?.addEventListener('click', closeMenu);
-
-document.querySelectorAll('.menu a').forEach(link => {
-  link.addEventListener('click', closeMenu);
+window.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeDrawer();
 });
 
-if (!reduceMotion && 'IntersectionObserver' in window) {
-  const revealObserver = new IntersectionObserver((entries, observer) => {
+if ('IntersectionObserver' in window && !reducedMotion) {
+  const io = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
-      entry.target.classList.add('is-visible');
+      entry.target.classList.add('visible');
       observer.unobserve(entry.target);
     });
-  }, {
-    threshold: 0.18,
-    rootMargin: '0px 0px -10% 0px'
-  });
+  }, { threshold: 0.18, rootMargin: '0px 0px -10% 0px' });
 
-  reveals.forEach(el => revealObserver.observe(el));
+  reveals.forEach(el => io.observe(el));
 } else {
-  reveals.forEach(el => el.classList.add('is-visible'));
+  reveals.forEach(el => el.classList.add('visible'));
 }
 
-if (backtop && hero) {
-  const topObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      backtop.classList.toggle('is-visible', !entry.isIntersecting);
-    });
-  }, {
-    threshold: 0.15
-  });
+const topObserver = new IntersectionObserver(([entry]) => {
+  toTop.classList.toggle('show', !entry.isIntersecting);
+}, { threshold: 0.15 });
 
-  topObserver.observe(hero);
-}
+topObserver.observe(document.querySelector('#home'));
 
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 120) closeMenu();
-}, { passive: true });
+toTop?.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
+});
+
+window.addEventListener('scroll', closeDrawer, { passive: true });
