@@ -1,6 +1,6 @@
 const reveals = document.querySelectorAll('.reveal');
 const backtop = document.querySelector('.backtop');
-
+const hero = document.querySelector('#hero');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 if (reduceMotion || !('IntersectionObserver' in window)) {
@@ -20,15 +20,15 @@ if (reduceMotion || !('IntersectionObserver' in window)) {
 
   reveals.forEach(el => revealObserver.observe(el));
 
-  const topObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!backtop) return;
-      backtop.classList.toggle('is-visible', !entry.isIntersecting);
+  if (hero && backtop) {
+    const topObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        backtop.classList.toggle('is-visible', !entry.isIntersecting);
+      });
+    }, {
+      threshold: 0.1
     });
-  }, {
-    threshold: 0.1
-  });
 
-  const hero = document.querySelector('#hero');
-  if (hero) topObserver.observe(hero);
+    topObserver.observe(hero);
+  }
 }
