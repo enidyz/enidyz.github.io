@@ -22,7 +22,7 @@ body{
     radial-gradient(circle at 88% 18%, rgba(138,166,200,.20), transparent 26%),
     radial-gradient(circle at 48% 92%, rgba(201,178,141,.18), transparent 30%),
     linear-gradient(180deg, var(--bg), var(--bg2));
-  overflow-x:hidden;
+  overflow:hidden;
 }
 
 .noise{
@@ -63,17 +63,20 @@ body{
   pointer-events:auto;
 }
 
-.page{
+.scroller{
   position:relative;
   z-index:1;
+  height:100vh;
+  overflow-y:auto;
+  scroll-snap-type:y mandatory;
+  overscroll-behavior-y:contain;
+  scroll-behavior:smooth;
   max-width:1140px;
-  min-height:100vh;
-  margin:16px auto;
+  margin:0 auto;
   background:linear-gradient(180deg, rgba(255,255,255,.52), rgba(255,255,255,.32));
-  border:1px solid rgba(29,42,36,.08);
-  border-radius:32px;
+  border-left:1px solid rgba(29,42,36,.08);
+  border-right:1px solid rgba(29,42,36,.08);
   box-shadow:var(--shadow);
-  overflow:hidden;
 }
 
 .topbar{
@@ -161,7 +164,7 @@ body{
 }
 
 .section{
-  min-height:100svh;
+  min-height:100vh;
   display:grid;
   align-items:center;
   padding:26px 22px 30px;
@@ -378,16 +381,6 @@ p{
   font-size:.95rem;
 }
 
-.reveal{
-  opacity:1;
-  transform:none;
-}
-
-.reveal.is-visible{
-  opacity:1;
-  transform:none;
-}
-
 @keyframes float{
   0%,100%{transform:translateY(0) translateX(0)}
   50%{transform:translateY(-14px) translateX(6px)}
@@ -396,10 +389,6 @@ p{
 @media (max-width:900px){
   .inner,.grid{
     grid-template-columns:1fr;
-  }
-
-  .section{
-    min-height:auto;
   }
 
   .visual{
@@ -413,9 +402,9 @@ p{
 }
 
 @media (max-width:640px){
-  .page{
-    margin:10px;
-    border-radius:24px;
+  .scroller{
+    border-left:none;
+    border-right:none;
   }
 
   .topbar,.section,.footer{
