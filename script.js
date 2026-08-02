@@ -6,7 +6,7 @@ if (backtop && hero) {
     entries.forEach(entry => {
       backtop.classList.toggle('is-visible', !entry.isIntersecting);
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.1, root: document.querySelector('.scroller') });
 
   observer.observe(hero);
 }
