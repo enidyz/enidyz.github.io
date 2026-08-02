@@ -157,9 +157,6 @@ body{
   border-bottom:1px solid rgba(29,42,36,.06);
   scroll-snap-align:start;
   scroll-snap-stop:always;
-}
-
-.hero{
   scroll-margin-top:90px;
 }
 
