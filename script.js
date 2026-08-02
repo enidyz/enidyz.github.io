@@ -31,4 +31,4 @@ if (reduceMotion || !('IntersectionObserver' in window)) {
 
     topObserver.observe(hero);
   }
-}
+} 
