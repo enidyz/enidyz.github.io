@@ -19,6 +19,7 @@ const closeDrawer = () => {
 menuButton?.addEventListener('click', () => {
   page.classList.contains('drawer-open') ? closeDrawer() : openDrawer();
 });
+
 drawerClose?.addEventListener('click', closeDrawer);
 overlay?.addEventListener('click', closeDrawer);
 
