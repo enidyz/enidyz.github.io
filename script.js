@@ -57,4 +57,4 @@ if (backtop && hero) {
 
 window.addEventListener('scroll', () => {
   if (window.scrollY > 120) closeMenu();
-}, { passive: true }); 
+}, { passive: true });
