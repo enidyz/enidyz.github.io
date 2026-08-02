@@ -3,238 +3,167 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EniDyz — Mental i Duchowość</title>
-  <meta name="description" content="Jasna, limonkowo-pastelowa przestrzeń o mentalu, duchowości i uważności." />
+  <meta name="color-scheme" content="light" />
   <meta name="theme-color" content="#fffdf1" />
-  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Spokojna, jasna strona o mentalu, duchowości i uważności." />
+  <title>EniDyz</title>
+  <link rel="stylesheet" href="style.css?v=1" />
 </head>
 <body>
-  <div class="noise" aria-hidden="true"></div>
+  <a class="skip-link" href="#main">Przejdź do treści</a>
 
-  <button class="menu-fab" type="button" aria-label="Otwórz menu" aria-expanded="false" aria-controls="sidebar">
-    <span class="hamburger" aria-hidden="true">
-      <span></span>
-      <span></span>
-      <span></span>
-    </span>
-    <span class="fab-text">Menu</span>
-  </button>
+  <div class="page" id="page">
+    <header class="site-header">
+      <button
+        class="menu-button"
+        type="button"
+        aria-controls="site-nav"
+        aria-expanded="false"
+        aria-label="Otwórz menu"
+      >
+        <span class="hamburger" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="menu-label">Menu</span>
+      </button>
 
-  <a class="backtop" href="#start" aria-label="Powrót do góry">↑</a>
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">EniDyz</span>
+      </div>
+    </header>
 
-  <div class="shell" id="shell">
-    <aside class="sidebar" id="sidebar" aria-label="Menu główne">
-      <div class="sidebar-head">
-        <div class="brand">
-          <span class="mark" aria-hidden="true"></span>
-          <span>EniDyz</span>
-        </div>
-        <button class="menu-close" type="button" aria-label="Zamknij menu">✕</button>
+    <aside class="overlay" aria-hidden="true"></aside>
+
+    <nav class="drawer" id="site-nav" aria-label="Nawigacja główna">
+      <div class="drawer-top">
+        <div class="drawer-title">Menu</div>
+        <button class="drawer-close" type="button" aria-label="Zamknij menu">✕</button>
       </div>
 
-      <nav class="menu">
-        <a class="tile" href="#start"><span class="tile-kicker">01</span><span class="tile-title">Start</span><span class="tile-desc">Wprowadzenie</span></a>
-        <a class="tile" href="#o-projekcie"><span class="tile-kicker">02</span><span class="tile-title">O projekcie</span><span class="tile-desc">Spokój i kierunek</span></a>
-        <a class="tile" href="#wsparcie"><span class="tile-kicker">03</span><span class="tile-title">Wsparcie</span><span class="tile-desc">Uważność i balans</span></a>
-        <a class="tile" href="#dla-kogo"><span class="tile-kicker">04</span><span class="tile-title">Dla kogo</span><span class="tile-desc">Kto tu znajdzie siebie</span></a>
-        <a class="tile" href="#faq"><span class="tile-kicker">05</span><span class="tile-title">FAQ</span><span class="tile-desc">Najczęstsze pytania</span></a>
-        <a class="tile" href="#kontakt"><span class="tile-kicker">06</span><span class="tile-title">Kontakt</span><span class="tile-desc">Powrót do góry</span></a>
-      </nav>
-    </aside>
+      <a href="#home" class="nav-link">Start</a>
+      <a href="#about" class="nav-link">O projekcie</a>
+      <a href="#support" class="nav-link">Wsparcie</a>
+      <a href="#audience" class="nav-link">Dla kogo</a>
+      <a href="#faq" class="nav-link">FAQ</a>
+      <a href="#contact" class="nav-link">Kontakt</a>
+    </nav>
 
-    <main class="content scroller" id="start">
-      <header class="topbar reveal">
-        <div class="topbar-copy">
+    <main id="main">
+      <section class="hero reveal" id="home">
+        <div class="hero-copy">
           <span class="eyebrow"><span class="dot"></span> Spokój, który przyciąga</span>
           <h1>Wewnętrzna równowaga zaczyna się tutaj.</h1>
-          <p class="lead">
-            EniDyz to jasna, świeża i spokojna przestrzeń o mentalu, duchowości i codziennej uważności.
-            Ma budzić ciekawość, ale też dawać oddech.
+          <p>
+            EniDyz to jasna i świeża przestrzeń o mentalu, duchowości i uważności.
+            Ma działać lekko, estetycznie i bez problemów na telefonie oraz komputerze.
           </p>
-        </div>
-      </header>
-
-      <section class="section hero reveal" id="hero">
-        <div class="inner">
-          <div class="copy">
-            <h2>Miękka energia, czysta forma i treści, które zostają w głowie</h2>
-            <p>
-              To miejsce ma łączyć delikatność z charakterem. Chcemy, żeby od pierwszego kontaktu
-              czuć było coś świeżego, inspirującego i naprawdę zapamiętywalnego.
-            </p>
-            <div class="actions">
-              <a class="btn primary" href="#o-projekcie">Poznaj więcej</a>
-              <a class="btn secondary" href="#kontakt">Kontakt</a>
-            </div>
+          <div class="actions">
+            <a class="btn primary" href="#about">Poznaj więcej</a>
+            <a class="btn ghost" href="#contact">Kontakt</a>
           </div>
+        </div>
 
-          <div class="visual" aria-label="Dekoracyjna kompozycja">
-            <div class="orb one"></div>
-            <div class="orb two"></div>
-            <div class="orb three"></div>
-            <div class="panel">
-              <h3>Spokój, rytm, oddech.</h3>
-              <p>Świeża paleta, lekkość i klimat, który naprawdę przyciąga uwagę.</p>
-            </div>
+        <div class="hero-panel" aria-hidden="true">
+          <div class="orb orb-a"></div>
+          <div class="orb orb-b"></div>
+          <div class="orb orb-c"></div>
+          <div class="glass">
+            <h2>Jasno. Lekko. Nowocześnie.</h2>
+            <p>Układ, który łatwo rozwijać bez psucia mobilki i desktopu.</p>
           </div>
         </div>
       </section>
 
-      <section class="section reveal" id="o-projekcie">
-        <div class="inner">
-          <div class="copy">
+      <section class="section reveal" id="about">
+        <div class="section-grid">
+          <div>
             <span class="eyebrow"><span class="dot"></span> O projekcie</span>
-            <h2>Spokojna przestrzeń dla myśli, ducha i codziennego oddechu</h2>
+            <h2>Spokojna przestrzeń dla myśli i oddechu</h2>
             <p>
-              EniDyz buduje atmosferę, w której łatwiej zwolnić, zatrzymać się i wrócić do siebie.
-              To miejsce o prostocie, harmonii i uważnym kontakcie ze sobą.
-            </p>
-            <p>
-              Całość ma działać lekko, ale z wyrazem — tak, by kojarzyła się z czymś pięknym,
-              nowoczesnym i żywym.
+              Projekt jest zrobiony mobile-first, więc najpierw działa dobrze na małym ekranie,
+              a potem rozszerza się na większe widoki.
             </p>
           </div>
-
-          <div class="stack">
-            <div class="card">
-              <h3>Łagodny rytm</h3>
-              <p>Treści prowadzą spokojnie, ale nie nudno.</p>
-            </div>
-            <div class="card">
-              <h3>Świeża estetyka</h3>
-              <p>Kolory są jaśniejsze, bardziej witalne i zapamiętywalne.</p>
-            </div>
-            <div class="card">
-              <h3>Jasny sens</h3>
-              <p>Każda sekcja mówi prosto o spokoju i równowadze.</p>
-            </div>
+          <div class="cards">
+            <article class="card"><h3>Mobile-first</h3><p>Najpierw telefon, potem desktop.</p></article>
+            <article class="card"><h3>Dostępność</h3><p>Buttony, aria i klawiatura działają poprawnie.</p></article>
+            <article class="card"><h3>Rozszerzalność</h3><p>Łatwo dodasz nowe sekcje bez przebudowy całości.</p></article>
           </div>
         </div>
       </section>
 
-      <section class="section reveal" id="wsparcie">
-        <div class="inner">
-          <div class="copy">
+      <section class="section reveal" id="support">
+        <div class="section-grid">
+          <div>
             <span class="eyebrow"><span class="dot"></span> Wsparcie</span>
-            <h2>Wsparcie dla uważności, równowagi i spokojniejszego rytmu</h2>
+            <h2>Wygodne operowanie na PC i telefonie</h2>
             <p>
-              Ta przestrzeń sprzyja wyciszeniu, porządkowaniu myśli i szukaniu większej obecności
-              w codziennym życiu.
+              Menu ma jeden wspólny mechanizm, a nie osobne wersje dla różnych urządzeń.
+              To zmniejsza ryzyko błędów przy kolejnych zmianach.
             </p>
           </div>
-
-          <div class="grid">
-            <div class="card">
-              <h3>Wyciszenie</h3>
-              <p>Chwila oddechu i mniej napięcia po intensywnym dniu.</p>
-            </div>
-            <div class="card">
-              <h3>Uważność</h3>
-              <p>Łatwiejszy powrót do tego, co jest tu i teraz.</p>
-            </div>
-            <div class="card">
-              <h3>Kontakt ze sobą</h3>
-              <p>Delikatne przypomnienie, że spokój jest dostępny na co dzień.</p>
-            </div>
+          <div class="cards">
+            <article class="card"><h3>Menu off-canvas</h3><p>Wysuwa się płynnie i nie rozwala layoutu.</p></article>
+            <article class="card"><h3>Cache busting</h3><p>Wersjonowanie plików ogranicza stare zasoby w przeglądarce.</p></article>
+            <article class="card"><h3>Reduced motion</h3><p>Uszanuje osoby, które nie chcą animacji.</p></article>
           </div>
         </div>
       </section>
 
-      <section class="section reveal" id="dla-kogo">
-        <div class="inner">
-          <div class="copy">
+      <section class="section reveal" id="audience">
+        <div class="section-grid">
+          <div>
             <span class="eyebrow"><span class="dot"></span> Dla kogo</span>
-            <h2>Dla osób, które chcą mniej hałasu i więcej przestrzeni</h2>
+            <h2>Dla osób, które chcą mniej chaosu</h2>
             <p>
-              EniDyz jest dla tych, którzy czują przebodźcowanie, szukają łagodniejszej atmosfery
-              albo po prostu cenią spokojną, estetyczną przestrzeń.
-            </p>
-            <p>
-              To także miejsce dla osób zainteresowanych duchowością, uważnością i prostym
-              podejściem do codzienności.
+              Układ jest prosty, czytelny i gotowy na kolejne sekcje, bez kombinowania
+              z osobnymi wersjami mobilnymi.
             </p>
           </div>
-
-          <div class="stack">
-            <div class="card">
-              <h3>Gdy chcesz zwolnić</h3>
-              <p>Strona ma dawać wrażenie oddechu i porządku.</p>
-            </div>
-            <div class="card">
-              <h3>Gdy cenisz prostotę</h3>
-              <p>Bez nadmiaru słów, bez ciężkiej formy, bez presji.</p>
-            </div>
-            <div class="card">
-              <h3>Gdy szukasz sensu</h3>
-              <p>Treść skupia się na spokoju, intencji i wewnętrznej równowadze.</p>
-            </div>
+          <div class="cards">
+            <article class="card"><h3>Łatwe testy</h3><p>Zmiany widać od razu po podbiciu wersji pliku.</p></article>
+            <article class="card"><h3>Jedna baza</h3><p>Ten sam HTML obsłuży nowe funkcje w przyszłości.</p></article>
+            <article class="card"><h3>Stabilność</h3><p>Bez zależności od ciężkich bibliotek.</p></article>
           </div>
         </div>
       </section>
 
       <section class="section reveal" id="faq">
-        <div class="inner">
-          <div class="copy">
+        <div class="section-grid">
+          <div>
             <span class="eyebrow"><span class="dot"></span> FAQ</span>
             <h2>Najczęstsze pytania</h2>
-            <p>
-              Pytania pomagają szybko zrozumieć klimat strony i to, czego można się po niej spodziewać.
-            </p>
+            <p>Ta sekcja możesz łatwo rozbudować o nowe pytania bez ruszania logiki menu.</p>
           </div>
-
-          <div class="stack">
-            <div class="card">
-              <h3>Jaki jest charakter tej strony?</h3>
-              <p>Spokojny, jasny i inspirujący, z lekkim wellnessowym vibe'em.</p>
-            </div>
-            <div class="card">
-              <h3>Do kogo jest skierowana?</h3>
-              <p>Do osób, które chcą mniej chaosu i więcej oddechu.</p>
-            </div>
-            <div class="card">
-              <h3>Jaki ma być odbiór?</h3>
-              <p>Łagodny, estetyczny i przyciągający uwagę już od pierwszego spojrzenia.</p>
-            </div>
+          <div class="cards">
+            <article class="card"><h3>Czy działa na telefonie?</h3><p>Tak, bo układ jest projektowany mobile-first.</p></article>
+            <article class="card"><h3>Czy będzie działać po zmianach?</h3><p>Tak, jeśli podbijesz wersję plików CSS i JS.</p></article>
+            <article class="card"><h3>Czy można rozwijać dalej?</h3><p>Tak, architektura jest przygotowana pod nowe sekcje.</p></article>
           </div>
         </div>
       </section>
 
-      <section class="section reveal" id="kontakt">
-        <div class="inner">
-          <div class="copy">
+      <section class="section reveal" id="contact">
+        <div class="section-grid">
+          <div>
             <span class="eyebrow"><span class="dot"></span> Kontakt</span>
-            <h2>Wracaj do spokoju, kiedy potrzebujesz</h2>
+            <h2>Gotowe na kolejne ulepszenia</h2>
             <p>
-              EniDyz ma być miejscem, do którego można wrócić po więcej ciszy, równowagi i
-              łagodnej obecności.
+              Wystarczy dopisywać nowe sekcje i wersjonować pliki, a przeglądarka
+              nie powinna uparcie trzymać starej wersji.
             </p>
-            <div class="actions">
-              <a class="btn primary" href="#start">Powrót do góry</a>
-              <a class="btn secondary" href="#o-projekcie">Menu sekcji</a>
-            </div>
           </div>
-
-          <div class="signup">
-            <div class="stack">
-              <div>
-                <h3>Na bieżąco</h3>
-                <p>Krótka forma kontaktu dla osób, które chcą wrócić później.</p>
-              </div>
-              <div class="cta-box">
-                <input class="email" type="email" placeholder="Twój adres e-mail" aria-label="Adres e-mail" />
-                <a class="btn primary" href="#">Zapisz</a>
-              </div>
-            </div>
+          <div class="cards">
+            <article class="card"><h3>Dodawanie treści</h3><p>Po prostu dopisujesz nowy blok sekcji.</p></article>
+            <article class="card"><h3>Zmiany stylu</h3><p>Edytujesz CSS i zmieniasz numer v.</p></article>
+            <article class="card"><h3>Zmiany JS</h3><p>Podbijasz v i testujesz na telefonie.</p></article>
           </div>
         </div>
       </section>
-
-      <footer class="footer">
-        EniDyz — mental, duchowość i spokojna obecność.
-      </footer>
     </main>
+
+    <button class="to-top" type="button" aria-label="Wróć do góry">↑</button>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=1"></script>
 </body>
 </html>
