@@ -1,8 +1,6 @@
 :root{
   --bg:#eef3ef;
   --bg2:#e7efe8;
-  --panel:rgba(255,255,255,.72);
-  --panel-strong:rgba(255,255,255,.88);
   --text:#1d2a24;
   --muted:#5f6f67;
   --line:rgba(29,42,36,.10);
@@ -123,30 +121,47 @@ body{
 }
 
 .menu{
-  display:flex;
+  display:grid;
+  grid-template-columns:repeat(6,minmax(110px,1fr));
   gap:10px;
-  flex-wrap:wrap;
-  justify-content:flex-end;
+  width:min(100%,760px);
 }
 
-.menu a{
+.tile{
   text-decoration:none;
-  color:var(--muted);
-  font-size:.95rem;
-  padding:8px 12px;
-  border-radius:999px;
-  border:1px solid transparent;
-  transition:.2s ease;
-}
-
-.menu a:hover{
   color:var(--text);
-  background:rgba(255,255,255,.50);
-  border-color:var(--line);
+  padding:12px 12px 11px;
+  border-radius:18px;
+  background:rgba(255,255,255,.60);
+  border:1px solid rgba(29,42,36,.08);
+  box-shadow:0 12px 24px rgba(29,42,36,.06);
+  transition:.2s ease;
+  display:grid;
+  gap:3px;
+  min-height:84px;
 }
 
-.scroll-snap{
-  scroll-behavior:smooth;
+.tile:hover{
+  transform:translateY(-2px);
+  background:rgba(255,255,255,.82);
+}
+
+.tile-kicker{
+  font-size:.72rem;
+  letter-spacing:.14em;
+  color:var(--accent);
+  font-weight:800;
+}
+
+.tile-title{
+  font-size:.98rem;
+  font-weight:800;
+}
+
+.tile-desc{
+  font-size:.82rem;
+  color:var(--muted);
+  line-height:1.2;
 }
 
 .section{
@@ -157,7 +172,7 @@ body{
   border-bottom:1px solid rgba(29,42,36,.06);
   scroll-snap-align:start;
   scroll-snap-stop:always;
-  scroll-margin-top:90px;
+  scroll-margin-top:110px;
 }
 
 .inner{
@@ -213,9 +228,7 @@ p{
   box-shadow:0 0 0 6px rgba(111,155,138,.10);
 }
 
-.lead{
-  max-width:58ch;
-}
+.lead{max-width:58ch}
 
 .actions{
   display:flex;
@@ -246,9 +259,7 @@ p{
   color:var(--text);
 }
 
-.btn:hover{
-  transform:translateY(-1px);
-}
+.btn:hover{transform:translateY(-1px)}
 
 .visual{
   position:relative;
@@ -269,31 +280,21 @@ p{
   position:absolute;
   border-radius:50%;
   animation:float 10s ease-in-out infinite;
-  filter:saturate(.95);
 }
 
 .orb.one{
-  width:170px;
-  height:170px;
-  top:44px;
-  left:36px;
+  width:170px;height:170px;top:44px;left:36px;
   background:radial-gradient(circle at 30% 30%, #e8f4ed, #95b9aa 72%);
 }
 
 .orb.two{
-  width:112px;
-  height:112px;
-  top:82px;
-  right:54px;
+  width:112px;height:112px;top:82px;right:54px;
   background:radial-gradient(circle at 30% 30%, #edf3fb, #a8bedb 72%);
   animation-delay:-2.2s;
 }
 
 .orb.three{
-  width:140px;
-  height:140px;
-  bottom:46px;
-  right:88px;
+  width:140px;height:140px;bottom:46px;right:88px;
   background:radial-gradient(circle at 30% 30%, #f3eadb, #d7bb8a 75%);
   animation-delay:-4.2s;
 }
@@ -371,9 +372,7 @@ p{
   outline:none;
 }
 
-.email::placeholder{
-  color:#6b7b73;
-}
+.email::placeholder{color:#6b7b73}
 
 .footer{
   padding:0 22px 22px;
@@ -384,97 +383,4 @@ p{
 .reveal{
   opacity:0;
   transform:translateY(18px);
-  transition:opacity .7s ease, transform .7s ease;
-}
-
-.reveal.is-visible{
-  opacity:1;
-  transform:translateY(0);
-}
-
-@keyframes float{
-  0%,100%{transform:translateY(0) translateX(0)}
-  50%{transform:translateY(-14px) translateX(6px)}
-}
-
-@media (max-width:900px){
-  .inner,.grid{
-    grid-template-columns:1fr;
-  }
-
-  .section{
-    min-height:auto;
-  }
-
-  .visual{
-    min-height:340px;
-  }
-
-  .menu{
-    justify-content:flex-start;
-  }
-}
-
-@media (max-width:640px){
-  .wrap{
-    padding:10px;
-  }
-
-  .page{
-    border-radius:24px;
-  }
-
-  .topbar,.section,.footer{
-    padding-left:16px;
-    padding-right:16px;
-  }
-
-  h1{
-    font-size:clamp(2.3rem,12vw,3.8rem);
-  }
-
-  .mini{
-    grid-template-columns:1fr;
-  }
-}
-
-@media (max-width:900px) and (pointer:coarse){
-  .scroll-snap{
-    height:100svh;
-    overflow-y:auto;
-    scroll-snap-type:y proximity;
-    overscroll-behavior-y:contain;
-  }
-
-  .page{
-    height:100svh;
-  }
-
-  .section{
-    min-height:100svh;
-  }
-}
-
-@media (prefers-reduced-motion: reduce){
-  html:focus-within{
-    scroll-behavior:auto;
-  }
-
-  .reveal{
-    opacity:1;
-    transform:none;
-    transition:none;
-  }
-
-  .orb{
-    animation:none;
-  }
-
-  .btn:hover{
-    transform:none;
-  }
-
-  .backtop{
-    transition:none;
-  }
-}
+  transition:
