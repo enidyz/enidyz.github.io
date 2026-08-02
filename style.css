@@ -383,4 +383,86 @@ p{
 .reveal{
   opacity:0;
   transform:translateY(18px);
-  transition:
+  transition:opacity .7s ease, transform .7s ease;
+}
+
+.reveal.is-visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0) translateX(0)}
+  50%{transform:translateY(-14px) translateX(6px)}
+}
+
+@media (max-width:900px){
+  .inner,.grid{
+    grid-template-columns:1fr;
+  }
+
+  .section{
+    min-height:auto;
+  }
+
+  .visual{
+    min-height:340px;
+  }
+
+  .menu{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    width:100%;
+  }
+}
+
+@media (max-width:640px){
+  .wrap{
+    padding:10px;
+  }
+
+  .page{
+    border-radius:24px;
+  }
+
+  .topbar,.section,.footer{
+    padding-left:16px;
+    padding-right:16px;
+  }
+
+  h1{
+    font-size:clamp(2.3rem,12vw,3.8rem);
+  }
+
+  .mini{
+    grid-template-columns:1fr;
+  }
+
+  .tile{
+    min-height:auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  html:focus-within{
+    scroll-behavior:auto;
+  }
+
+  .reveal{
+    opacity:1;
+    transform:none;
+    transition:none;
+  }
+
+  .orb{
+    animation:none;
+  }
+
+  .btn:hover,
+  .tile:hover{
+    transform:none;
+  }
+
+  .backtop{
+    transition:none;
+  }
+}
