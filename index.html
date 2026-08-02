@@ -9,19 +9,29 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="noise"></div>
+  <div class="noise" aria-hidden="true"></div>
 
-  <main class="wrap scroll-snap">
+  <a class="backtop" href="#start" aria-label="Powrót do góry">↑</a>
+
+  <main class="wrap scroll-snap" id="start">
     <div class="page">
       <header class="topbar">
         <div class="brand">
           <span class="mark" aria-hidden="true"></span>
           <span>EniDyz</span>
         </div>
-        <div class="badge">Mental • Duchowość • Uważność</div>
+
+        <nav class="menu" aria-label="Menu główne">
+          <a href="#start">Start</a>
+          <a href="#o-projekcie">O projekcie</a>
+          <a href="#wsparcie">Wsparcie</a>
+          <a href="#dla-kogo">Dla kogo</a>
+          <a href="#faq">FAQ</a>
+          <a href="#kontakt">Kontakt</a>
+        </nav>
       </header>
 
-      <section class="section reveal hero">
+      <section class="section reveal hero" id="hero">
         <div class="inner">
           <div>
             <span class="eyebrow"><span class="dot"></span> Przestrzeń dla spokoju</span>
@@ -31,8 +41,8 @@
               Tworzymy miejsce, które ma wspierać wyciszenie, refleksję i kontakt ze sobą.
             </p>
             <div class="actions">
-              <a class="btn primary" href="#kontakt">Zostań blisko</a>
-              <a class="btn secondary" href="#o-projekcie">Poznaj projekt</a>
+              <a class="btn primary" href="#o-projekcie">Zobacz dalej</a>
+              <a class="btn secondary" href="#kontakt">Powrót do menu</a>
             </div>
           </div>
 
@@ -42,9 +52,7 @@
             <div class="orb three"></div>
             <div class="panel">
               <h2>Spokój, który prowadzi.</h2>
-              <p>
-                Subtelny rytm, miękka forma i estetyka, która nie przytłacza.
-              </p>
+              <p>Subtelny rytm, miękka forma i estetyka, która nie przytłacza.</p>
               <div class="mini">
                 <div>Uważność</div>
                 <div>Balans</div>
@@ -63,41 +71,34 @@
             <p>
               EniDyz powstaje jako spokojna przestrzeń dla osób, które chcą zwolnić,
               zatrzymać się na chwilę i wrócić do siebie bez presji.
-              To nie jest ciężka, przeładowana komunikacja — tylko łagodne prowadzenie przez treść.
             </p>
             <p>
-              Chcemy, żeby wszystko było czytelne, lekkie i zbudowane wokół poczucia komfortu.
-              Dzięki temu użytkownik nie musi się zastanawiać, co kliknąć, tylko od razu czuje kierunek.
+              To nie jest ciężka, przeładowana komunikacja — tylko łagodne prowadzenie przez treść.
+              Każda sekcja ma dawać poczucie porządku, lekkości i zaufania.
             </p>
           </div>
 
           <div class="stack">
             <div class="card">
               <h3>Uważny rytm</h3>
-              <p>
-                Zamiast chaosu — spokojny układ, który prowadzi po stronie w naturalny sposób.
-              </p>
+              <p>Zamiast chaosu — spokojny układ, który prowadzi po stronie w naturalny sposób.</p>
             </div>
             <div class="card">
               <h3>Łagodna estetyka</h3>
-              <p>
-                Kolory, światło i przestrzeń mają wspierać ciszę, a nie z nią konkurować.
-              </p>
+              <p>Kolory, światło i przestrzeń mają wspierać ciszę, a nie z nią konkurować.</p>
             </div>
             <div class="card">
               <h3>Jasny przekaz</h3>
-              <p>
-                Każda sekcja ma mówić prosto, bez nadmiaru słów, ale nadal z charakterem.
-              </p>
+              <p>Każdy blok mówi prosto, bez nadmiaru słów, ale nadal z charakterem.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section reveal">
+      <section class="section reveal" id="wsparcie">
         <div class="inner">
           <div>
-            <span class="eyebrow"><span class="dot"></span> Jak wspiera</span>
+            <span class="eyebrow"><span class="dot"></span> Wsparcie</span>
             <h2>Wsparcie dla mentalu i duchowości w codziennym życiu</h2>
             <p>
               Ten projekt ma pomagać w delikatnym porządkowaniu myśli, budowaniu uważności
@@ -122,7 +123,7 @@
         </div>
       </section>
 
-      <section class="section reveal">
+      <section class="section reveal" id="dla-kogo">
         <div class="inner">
           <div>
             <span class="eyebrow"><span class="dot"></span> Dla kogo</span>
@@ -154,47 +155,7 @@
         </div>
       </section>
 
-      <section class="section reveal">
-        <div class="inner">
-          <div>
-            <span class="eyebrow"><span class="dot"></span> Co znajdziesz</span>
-            <h2>Strona ma prowadzić przez kilka spokojnych obszarów</h2>
-            <p>
-              Dzięki temu scroll nie będzie pusty, tylko naturalnie poprowadzi przez kolejne
-              fragmenty informacji. Każda sekcja buduje większy obraz tego, czym jest EniDyz.
-            </p>
-          </div>
-
-          <div class="grid">
-            <div class="card">
-              <h3>Wprowadzenie</h3>
-              <p>Krótki, mocny start, który od razu ustawia klimat całej strony.</p>
-            </div>
-            <div class="card">
-              <h3>Misja</h3>
-              <p>Dlaczego projekt powstaje i jaką ma dawać wartość użytkownikowi.</p>
-            </div>
-            <div class="card">
-              <h3>Obszary wsparcia</h3>
-              <p>Uważność, spokój, kontakt ze sobą, oddech i prostsze tempo życia.</p>
-            </div>
-            <div class="card">
-              <h3>Zaufanie</h3>
-              <p>Treść ma brzmieć ciepło, spokojnie i bez nacisku.</p>
-            </div>
-            <div class="card">
-              <h3>Kontakt</h3>
-              <p>Prosty sposób, by wrócić do projektu później i nie zgubić tej przestrzeni.</p>
-            </div>
-            <div class="card">
-              <h3>Zamknięcie</h3>
-              <p>Delikatny finał, który zostawia użytkownika z poczuciem spokoju.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section reveal">
+      <section class="section reveal" id="faq">
         <div class="inner">
           <div>
             <span class="eyebrow"><span class="dot"></span> FAQ</span>
@@ -231,6 +192,10 @@
               Jeśli chcesz wrócić do projektu później, możesz zostawić kontakt.
               To prosty sposób, żeby nie zgubić tej przestrzeni i wrócić do niej, gdy będzie gotowa.
             </p>
+            <div class="actions">
+              <a class="btn primary" href="#start">Powrót do góry</a>
+              <a class="btn secondary" href="#o-projekcie">Menu sekcji</a>
+            </div>
           </div>
 
           <div class="signup">
@@ -248,30 +213,9 @@
         </div>
       </section>
 
-      <section class="section reveal">
-        <div class="inner">
-          <div>
-            <span class="eyebrow"><span class="dot"></span> Zamknięcie</span>
-            <h2>Spokojny finał bez pośpiechu</h2>
-            <p>
-              Ostatnia sekcja zostawia użytkownika z wyraźnym wrażeniem, że to przestrzeń
-              o równowadze, prostocie i delikatnym charakterze.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>EniDyz</h3>
-            <p>
-              Mental, duchowość i spokojna obecność — w formie, którą łatwo poczuć
-              i wygodnie przejść od początku do końca.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <div class="footer">
+      <footer class="footer">
         EniDyz — mental, duchowość i spokojna obecność.
-      </div>
+      </footer>
     </div>
   </main>
 
