@@ -15,4 +15,4 @@ if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-m
   });
 
   items.forEach(el => io.observe(el));
-}
+} 
