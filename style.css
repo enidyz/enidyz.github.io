@@ -84,6 +84,7 @@ body{
   align-items:center;
   gap:12px;
   cursor:pointer;
+  transition:.2s ease;
 }
 
 .hamburger{
@@ -133,7 +134,7 @@ body{
 .shell.menu-open .menu-fab{
   opacity:0;
   pointer-events:none;
-  transform:translateY(-4px);
+  transform:translateY(-6px) scale(.98);
 }
 
 .sidebar-head{
