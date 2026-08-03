@@ -23,18 +23,22 @@ menuButton?.addEventListener('click', () => {
 drawerClose?.addEventListener('click', closeDrawer);
 overlay?.addEventListener('click', closeDrawer);
 
-document.querySelectorAll('.nav-link').forEach(link => link.addEventListener('click', closeDrawer));
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', closeDrawer);
+});
 
 window.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeDrawer();
 });
 
 if ('IntersectionObserver' in window && !reducedMotion) {
-  const io = new IntersectionObserver((entries, observer) => {
+  const io = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      } else {
+        entry.target.classList.remove('visible');
+      }
     });
   }, { threshold: 0.18, rootMargin: '0px 0px -10% 0px' });
 
@@ -53,4 +57,4 @@ toTop?.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
 });
 
-window.addEventListener('scroll', closeDrawer, { passive: true }); 
+window.addEventListener('scroll', closeDrawer, { passive: true });
