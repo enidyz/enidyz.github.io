@@ -40,7 +40,10 @@ if ('IntersectionObserver' in window && !reducedMotion) {
         entry.target.classList.remove('visible');
       }
     });
-  }, { threshold: 0.18, rootMargin: '0px 0px -10% 0px' });
+  }, {
+    threshold: 0.05,
+    rootMargin: '0px'
+  });
 
   reveals.forEach(el => io.observe(el));
 } else {
@@ -57,4 +60,4 @@ toTop?.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
 });
 
-window.addEventListener('scroll', closeDrawer, { passive: true }); 
+window.addEventListener('scroll', closeDrawer, { passive: true });
