@@ -1,3 +1,4 @@
+
 const page = document.querySelector('#page');
 const menuButton = document.querySelector('.menu-button');
 const drawerClose = document.querySelector('.drawer-close');
@@ -37,8 +38,7 @@ if ('IntersectionObserver' in window && !reducedMotion) {
       entry.target.classList.toggle('visible', entry.isIntersecting);
     });
   }, {
-    threshold: 0.22,
-    rootMargin: '0px'
+    threshold: 0.22
   });
 
   reveals.forEach(el => io.observe(el));
@@ -56,4 +56,4 @@ toTop?.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
 });
 
-window.addEventListener('scroll', closeDrawer, { passive: true }); 
+window.addEventListener('scroll', closeDrawer, { passive: true });
