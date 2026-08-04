@@ -1,9 +1,9 @@
-const page = document.querySelector('body');
+const page = document.querySelector('#page');
 const menuButton = document.querySelector('.menu-button');
 const drawerClose = document.querySelector('.drawer-close');
 const overlay = document.querySelector('.overlay');
 const toTop = document.querySelector('.to-top');
-const slides = document.querySelectorAll('.reveal');
+const reveals = document.querySelectorAll('.reveal');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const openDrawer = () => {
@@ -37,20 +37,20 @@ if ('IntersectionObserver' in window && !reducedMotion) {
       entry.target.classList.toggle('visible', entry.isIntersecting);
     });
   }, {
-    threshold: 0.45,
+    threshold: 0.22,
     rootMargin: '0px'
   });
 
-  slides.forEach(slide => io.observe(slide));
+  reveals.forEach(el => io.observe(el));
 } else {
-  slides.forEach(slide => slide.classList.add('visible'));
+  reveals.forEach(el => el.classList.add('visible'));
 }
 
 const topObserver = new IntersectionObserver(([entry]) => {
   toTop.classList.toggle('show', !entry.isIntersecting);
 }, { threshold: 0.15 });
 
-topObserver.observe(document.querySelector('#slide-1'));
+topObserver.observe(document.querySelector('#home'));
 
 toTop?.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
