@@ -4,153 +4,27 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="light" />
-  <meta name="theme-color" content="#fbf8ef" />
   <title>Produkt</title>
-  <style>
-    :root{
-      --bg:#fbf8ef;
-      --bg2:#eef8dd;
-      --surface:rgba(255,255,255,.72);
-      --surface-strong:rgba(255,255,255,.88);
-      --text:#162218;
-      --muted:#60705f;
-      --border:rgba(22,34,24,.10);
-      --accent:#c8ef22;
-      --accent2:#8bd54f;
-      --shadow:0 18px 48px rgba(22,34,24,.08);
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0}
-    body{
-      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(circle at 12% 10%, rgba(200,239,34,.16), transparent 22%),
-        radial-gradient(circle at 90% 16%, rgba(139,213,79,.12), transparent 22%),
-        linear-gradient(180deg, var(--bg), var(--bg2));
-      overflow-x:hidden;
-    }
-    .site-header{
-      position:sticky;top:0;z-index:40;
-      display:flex;align-items:center;justify-content:space-between;
-      padding:16px;background:rgba(251,248,239,.78);
-      backdrop-filter:blur(12px);border-bottom:1px solid rgba(22,34,24,.06)
-    }
-    .brand{display:flex;align-items:center;gap:10px;font-weight:900}
-    .brand-mark{width:38px;height:38px;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--accent2))}
-    .menu-button,.drawer-close,.to-top{border:0;cursor:pointer;font:inherit}
-    .menu-button{
-      display:flex;align-items:center;gap:10px;
-      padding:12px 14px;border-radius:16px;background:var(--surface);box-shadow:var(--shadow)
-    }
-    .hamburger{display:grid;gap:4px;width:22px}
-    .hamburger span{height:2px;border-radius:999px;background:var(--text)}
-    .drawer{
-      position:fixed;inset:0 auto 0 0;width:min(340px,88vw);
-      transform:translateX(-105%);transition:transform .25s ease;z-index:60;
-      background:rgba(251,248,239,.96);border-right:1px solid var(--border);
-      padding:18px;box-shadow:20px 0 50px rgba(22,34,24,.10)
-    }
-    .drawer-open .drawer{transform:translateX(0)}
-    .drawer-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
-    .drawer-title{font-weight:900}
-    .drawer-close{width:42px;height:42px;border-radius:14px;background:var(--surface)}
-    .nav-link{
-      display:block;padding:14px 14px;margin-bottom:10px;border-radius:16px;
-      text-decoration:none;color:var(--text);background:rgba(255,255,255,.84);border:1px solid var(--border)
-    }
-    .overlay{
-      position:fixed;inset:0;background:rgba(22,34,24,.10);
-      opacity:0;pointer-events:none;transition:opacity .2s ease;z-index:50
-    }
-    .drawer-open .overlay{opacity:1;pointer-events:auto}
-    main{padding:20px 16px 28px}
-    .hero,.section{
-      max-width:1120px;margin:0 auto;min-height:100svh;display:grid;align-items:center;padding:24px 0
-    }
-    .hero{grid-template-columns:1.05fr .95fr;gap:22px}
-    .section-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:20px;align-items:center}
-    h1{
-      font-size:clamp(2.5rem,7vw,5.1rem);line-height:.92;margin:14px 0;letter-spacing:-.06em
-    }
-    h2{margin:12px 0;font-size:clamp(1.7rem,3vw,2.3rem);letter-spacing:-.03em}
-    h3{margin:0 0 8px;font-size:1.08rem}
-    p{margin:0;color:var(--muted);line-height:1.76}
-    .eyebrow{
-      display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;
-      background:rgba(200,239,34,.14);border:1px solid rgba(200,239,34,.20);font-weight:800;color:#748c00
-    }
-    .dot{
-      width:10px;height:10px;border-radius:50%;background:var(--accent);
-      box-shadow:0 0 0 6px rgba(200,239,34,.14)
-    }
-    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;padding:14px 18px;
-      border-radius:16px;text-decoration:none;font-weight:900
-    }
-    .btn.primary{background:linear-gradient(135deg,var(--accent2),var(--accent));color:#fff}
-    .btn.ghost{background:rgba(255,255,255,.84);border:1px solid var(--border);color:var(--text)}
-    .hero-panel{
-      min-height:420px;border-radius:30px;
-      background:
-        radial-gradient(circle at 15% 15%, rgba(200,239,34,.08), transparent 26%),
-        radial-gradient(circle at 85% 20%, rgba(139,213,79,.08), transparent 24%),
-        linear-gradient(180deg, rgba(255,255,255,.96), rgba(255,255,255,.82));
-      border:1px solid var(--border);
-      display:grid;place-items:center;box-shadow:var(--shadow)
-    }
-    .glass{
-      width:min(420px,86%);
-      padding:22px;border-radius:24px;background:rgba(255,255,255,.96);
-      border:1px solid var(--border);box-shadow:var(--shadow)
-    }
-    .cards{display:grid;gap:14px}
-    .card{
-      padding:18px;border-radius:18px;background:rgba(255,255,255,.96);
-      border:1px solid var(--border);box-shadow:0 10px 24px rgba(22,34,24,.05)
-    }
-    .to-top{
-      position:fixed;right:16px;bottom:16px;width:52px;height:52px;border-radius:50%;
-      background:linear-gradient(135deg,var(--accent2),var(--accent));color:#fff;
-      opacity:0;transform:translateY(10px);pointer-events:none;transition:.2s ease;z-index:45
-    }
-    .to-top.show{opacity:1;transform:translateY(0);pointer-events:auto}
-    .reveal{opacity:0;transform:translateY(18px);transition:opacity .55s ease, transform .55s ease}
-    .reveal.visible{opacity:1;transform:translateY(0)}
-    @media (max-width:900px){
-      .hero,.section-grid{grid-template-columns:1fr}
-      .hero,.section{min-height:auto}
-      .hero-panel{min-height:260px}
-    }
-    @media (max-width:640px){
-      main{padding-inline:14px}
-      .site-header{padding:14px}
-      h1{font-size:clamp(2.1rem,12vw,3.7rem)}
-      .menu-label{display:none}
-      .menu-button{width:52px;justify-content:center;padding:12px}
-    }
-    @media (prefers-reduced-motion: reduce){
-      html{scroll-behavior:auto}
-      .reveal{opacity:1;transform:none;transition:none}
-      .drawer,.overlay,.to-top{transition:none}
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="page" id="page">
+  <a class="skip-link" href="#main">Przejdź do treści</a>
+
+  <div id="page" class="page">
     <header class="site-header">
-      <button class="menu-button" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Otwórz menu">
-        <span class="hamburger" aria-hidden="true"><span></span><span></span><span></span></span>
-        <span class="menu-label">Menu</span>
-      </button>
       <div class="brand">
         <span class="brand-mark" aria-hidden="true"></span>
         <span class="brand-text">Produkt</span>
       </div>
-    </header>
 
-    <aside class="overlay" aria-hidden="true"></aside>
+      <button class="menu-button" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Otwórz menu">
+        <span class="hamburger" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="menu-label">Menu</span>
+      </button>
+    </header>
 
     <nav class="drawer" id="site-nav" aria-label="Nawigacja główna">
       <div class="drawer-top">
@@ -158,72 +32,100 @@
         <button class="drawer-close" type="button" aria-label="Zamknij menu">✕</button>
       </div>
       <a href="#home" class="nav-link">Start</a>
-      <a href="#product" class="nav-link">Produkt</a>
+      <a href="#about" class="nav-link">O produkcie</a>
       <a href="#features" class="nav-link">Funkcje</a>
       <a href="#contact" class="nav-link">Kontakt</a>
     </nav>
 
+    <aside class="overlay" aria-hidden="true"></aside>
+
     <main id="main">
-      <section class="hero reveal" id="home">
+      <section id="home" class="hero section reveal">
         <div class="hero-copy">
-          <span class="eyebrow"><span class="dot"></span> Produkt</span>
-          <h1>Jasny, nowoczesny i gotowy na rozwój.</h1>
-          <p>Publiczna strona produktu w lekkiej palecie, z prostą nawigacją i bez zbędnych ozdobników.</p>
+          <span class="eyebrow"><span class="dot"></span> Nowoczesna strona</span>
+          <h1>Prosto, ładnie i z efektem, który zostaje w głowie.</h1>
+          <p class="lead">Bez zmiany całej struktury, ale z mocniejszym pierwszym wrażeniem, lepszym światłem, głębią i płynnymi animacjami.</p>
           <div class="actions">
-            <a class="btn primary" href="#product">Zobacz produkt</a>
+            <a class="btn primary" href="#about">Zobacz więcej</a>
             <a class="btn ghost" href="#contact">Kontakt</a>
           </div>
+          <div class="hero-badges">
+            <span>• lekki motion</span>
+            <span>• premium look</span>
+            <span>• responsive</span>
+          </div>
         </div>
 
-        <div class="hero-panel" aria-hidden="true">
+        <div class="hero-panel">
           <div class="glass">
-            <h2>Produkt w centrum</h2>
-            <p>Bez kółek, bez zasłaniania napisu, bez ciężkiego klimatu.</p>
+            <div class="mini-top">
+              <span class="mini-dot"></span>
+              <span class="mini-dot"></span>
+              <span class="mini-dot"></span>
+            </div>
+            <div class="preview-card big">
+              <div class="preview-line strong"></div>
+              <div class="preview-line"></div>
+              <div class="preview-line short"></div>
+            </div>
+            <div class="preview-grid">
+              <div class="preview-card accent">
+                <span class="stat">98%</span>
+                <span class="label">czytelności</span>
+              </div>
+              <div class="preview-card">
+                <span class="stat">3x</span>
+                <span class="label">mocniejszy efekt</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="section reveal" id="product">
-        <div class="section-grid">
-          <div>
-            <span class="eyebrow"><span class="dot"></span> O produkcie</span>
-            <h2>Krótki opis produktu</h2>
-            <p>Dodaj tutaj tylko informacje bezpośrednio związane z produktem.</p>
-          </div>
-          <div class="cards">
-            <article class="card"><h3>Cecha 1</h3><p>Opis cechy produktu.</p></article>
-            <article class="card"><h3>Cecha 2</h3><p>Opis drugiej cechy produktu.</p></article>
-            <article class="card"><h3>Cecha 3</h3><p>Opis trzeciej cechy produktu.</p></article>
-          </div>
+      <section id="about" class="section section-grid reveal">
+        <div>
+          <span class="eyebrow"><span class="dot"></span> O produkcie</span>
+          <h2>Ta sama baza, ale dużo lepsze odczucie jakości.</h2>
+          <p>Tu nie trzeba robić rewolucji. Wystarczy lepsza hierarchia, głębia, światło i animacje, które wspierają treść, a nie ją przykrywają.</p>
+        </div>
+        <div class="cards">
+          <article class="card lift">
+            <h3>Mocniejszy hero</h3>
+            <p>Większy kontrast i lepsza kompozycja od razu przyciągają wzrok.</p>
+          </article>
+          <article class="card lift">
+            <h3>Subtelne animacje</h3>
+            <p>Wejścia sekcji są płynne, ale nie męczą i nie wyglądają „tanio”.</p>
+          </article>
         </div>
       </section>
 
-      <section class="section reveal" id="features">
-        <div class="section-grid">
-          <div>
-            <span class="eyebrow"><span class="dot"></span> Funkcje</span>
-            <h2>Najważniejsze funkcje</h2>
-            <p>Ta sekcja jest wyłącznie dla funkcji produktu.</p>
-          </div>
-          <div class="cards">
-            <article class="card"><h3>Funkcja 1</h3><p>Opis funkcji.</p></article>
-            <article class="card"><h3>Funkcja 2</h3><p>Opis funkcji.</p></article>
-            <article class="card"><h3>Funkcja 3</h3><p>Opis funkcji.</p></article>
-          </div>
+      <section id="features" class="section section-grid reverse reveal">
+        <div class="cards">
+          <article class="card lift">
+            <h3>Lepszy spacing</h3>
+            <p>Więcej oddechu między elementami daje bardziej premium odbiór.</p>
+          </article>
+          <article class="card lift">
+            <h3>Wyraźne CTA</h3>
+            <p>Przyciski są prostsze, ale mocniejsze wizualnie i bardziej zachęcające.</p>
+          </article>
+        </div>
+        <div>
+          <span class="eyebrow"><span class="dot"></span> Funkcje</span>
+          <h2>Wrażenie robi nie ilość efektów, tylko ich jakość.</h2>
+          <p>Ta wersja jest zrobiona tak, żeby wszystko wyglądało bardziej dopracowanie, a jednocześnie nadal było lekkie i szybkie.</p>
         </div>
       </section>
 
-      <section class="section reveal" id="contact">
-        <div class="section-grid">
-          <div>
-            <span class="eyebrow"><span class="dot"></span> Kontakt</span>
-            <h2>Kontakt dotyczący produktu</h2>
-            <p>Tu zostaje tylko kontakt związany z produktem.</p>
-          </div>
-          <div class="cards">
-            <article class="card"><h3>E-mail</h3><p>Adres kontaktowy.</p></article>
-            <article class="card"><h3>Wsparcie</h3><p>Informacja o pomocy.</p></article>
-            <article class="card"><h3>Aktualizacje</h3><p>Podbij wersję plików przy zmianach.</p></article>
+      <section id="contact" class="section reveal">
+        <div class="contact-panel">
+          <span class="eyebrow"><span class="dot"></span> Kontakt</span>
+          <h2>Zostaje prosto, ale wygląda dużo lepiej.</h2>
+          <p>To jest właśnie wersja, która ma nie zmieniać struktury zbytnio, a mimo to od razu robić lepsze wrażenie.</p>
+          <div class="actions">
+            <a class="btn primary" href="#home">Wróć na górę</a>
+            <a class="btn ghost" href="mailto:kontakt@twojadomena.pl">Napisz maila</a>
           </div>
         </div>
       </section>
@@ -232,62 +134,6 @@
     <button class="to-top" type="button" aria-label="Wróć do góry">↑</button>
   </div>
 
-  <script>
-    const page = document.querySelector('#page');
-    const menuButton = document.querySelector('.menu-button');
-    const drawerClose = document.querySelector('.drawer-close');
-    const overlay = document.querySelector('.overlay');
-    const toTop = document.querySelector('.to-top');
-    const reveals = document.querySelectorAll('.reveal');
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    const openDrawer = () => {
-      page.classList.add('drawer-open');
-      menuButton.setAttribute('aria-expanded', 'true');
-    };
-
-    const closeDrawer = () => {
-      page.classList.remove('drawer-open');
-      menuButton.setAttribute('aria-expanded', 'false');
-    };
-
-    menuButton?.addEventListener('click', () => {
-      page.classList.contains('drawer-open') ? closeDrawer() : openDrawer();
-    });
-
-    drawerClose?.addEventListener('click', closeDrawer);
-    overlay?.addEventListener('click', closeDrawer);
-    document.querySelectorAll('.nav-link').forEach(link => link.addEventListener('click', closeDrawer));
-
-    window.addEventListener('keydown', e => {
-      if (e.key === 'Escape') closeDrawer();
-    });
-
-    if ('IntersectionObserver' in window && !reducedMotion) {
-      const io = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        });
-      }, { threshold: 0.18, rootMargin: '0px 0px -10% 0px' });
-
-      reveals.forEach(el => io.observe(el));
-    } else {
-      reveals.forEach(el => el.classList.add('visible'));
-    }
-
-    const topObserver = new IntersectionObserver(([entry]) => {
-      toTop.classList.toggle('show', !entry.isIntersecting);
-    }, { threshold: 0.15 });
-
-    topObserver.observe(document.querySelector('#home'));
-
-    toTop?.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
-    });
-
-    window.addEventListener('scroll', closeDrawer, { passive: true });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
