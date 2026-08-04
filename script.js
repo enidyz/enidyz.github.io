@@ -1,9 +1,9 @@
-const page = document.querySelector('#page');
+const page = document.querySelector('body');
 const menuButton = document.querySelector('.menu-button');
 const drawerClose = document.querySelector('.drawer-close');
 const overlay = document.querySelector('.overlay');
 const toTop = document.querySelector('.to-top');
-const reveals = document.querySelectorAll('.reveal');
+const slides = document.querySelectorAll('.reveal');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const openDrawer = () => {
@@ -34,27 +34,23 @@ window.addEventListener('keydown', e => {
 if ('IntersectionObserver' in window && !reducedMotion) {
   const io = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      } else {
-        entry.target.classList.remove('visible');
-      }
+      entry.target.classList.toggle('visible', entry.isIntersecting);
     });
   }, {
-    threshold: 0.05,
+    threshold: 0.45,
     rootMargin: '0px'
   });
 
-  reveals.forEach(el => io.observe(el));
+  slides.forEach(slide => io.observe(slide));
 } else {
-  reveals.forEach(el => el.classList.add('visible'));
+  slides.forEach(slide => slide.classList.add('visible'));
 }
 
 const topObserver = new IntersectionObserver(([entry]) => {
   toTop.classList.toggle('show', !entry.isIntersecting);
 }, { threshold: 0.15 });
 
-topObserver.observe(document.querySelector('#home'));
+topObserver.observe(document.querySelector('#slide-1'));
 
 toTop?.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
