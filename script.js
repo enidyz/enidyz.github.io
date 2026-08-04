@@ -57,4 +57,4 @@ toTop?.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
 });
 
-window.addEventListener('scroll', closeDrawer, { passive: true });
+window.addEventListener('scroll', closeDrawer, { passive: true }); 
