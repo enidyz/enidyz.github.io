@@ -204,7 +204,7 @@ p{margin:0;color:var(--muted);line-height:1.76}
 .card-b{right:6%;bottom:12%;animation:floatCard 7s ease-in-out infinite reverse}
 
 .cards{display:grid;gap:14px}
-.card,.contact-panel,.quote-card,.stat-card{
+.card,.contact-panel,.tech-card{
   padding:22px;border-radius:22px;background:rgba(255,255,255,.92);
   border:1px solid var(--border);box-shadow:0 10px 24px rgba(22,35,26,.05)
 }
@@ -218,27 +218,18 @@ p{margin:0;color:var(--muted);line-height:1.76}
 }
 .contact-panel{padding:28px}
 
-.quote-card p{
-  font-size:1.05rem;
-  color:var(--text);
-  line-height:1.8;
+.tech-card{
+  display:grid;
+  gap:10px;
 }
-.quote-meta{
-  display:flex;align-items:center;gap:12px;margin-top:18px
-}
-.avatar{
-  width:42px;height:42px;border-radius:50%;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  box-shadow:0 10px 20px rgba(159,224,94,.28)
-}
-.quote-meta span{display:block;color:var(--muted);font-size:.92rem}
-.stat-card{
-  display:flex;gap:16px;align-items:center
-}
-.stat-number{
-  width:56px;height:56px;border-radius:18px;
-  display:grid;place-items:center;font-weight:900;font-size:1.5rem;
-  background:linear-gradient(135deg,rgba(159,224,94,.22),rgba(216,241,122,.20))
+.tech-num{
+  width:max-content;
+  padding:8px 12px;
+  border-radius:999px;
+  font-weight:900;
+  color:#507116;
+  background:rgba(159,224,94,.14);
+  border:1px solid rgba(159,224,94,.18);
 }
 
 .to-top{
