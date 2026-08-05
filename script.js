@@ -1,4 +1,3 @@
-
 const page = document.querySelector('#page');
 const menuButton = document.querySelector('.menu-button');
 const drawerClose = document.querySelector('.drawer-close');
